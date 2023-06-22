@@ -1,0 +1,7 @@
+PORT=8001
+DB_HOST=postgresql-technical:5432
+DB_DATABASE=db_prueba_technical
+DB_USERNAME=postgres
+DB_PASSWORD=admin
+SECRET=santiago-Technical
+EXPIRATE=3600000

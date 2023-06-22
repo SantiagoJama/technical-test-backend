@@ -1,0 +1,27 @@
+version: "3.11"
+services:
+  postgresql-technical:
+    image: postgres:14-alpine
+    container_name: postgresql-technical
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: db_prueba_technical
+    networks:
+      - technical
+  prueba-frontend:
+    container_name: prueba-frontend
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    networks:
+      - technical
+    depends_on:
+      - postgresql-technical
+    restart: always
+networks:
+  technical:
